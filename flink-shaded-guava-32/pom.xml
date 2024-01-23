@@ -46,6 +46,7 @@ under the License.
                     <artifactId>listenablefuture</artifactId>
                 </exclusion>
             </exclusions>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
