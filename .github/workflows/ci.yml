@@ -61,5 +61,5 @@ jobs:
           mvn ${MVN_COMMON_OPTIONS} dependency:tree -B | tee ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
           
           mvn ${MVN_COMMON_OPTIONS} exec:java@check-shade -N \
-            -Dexec.args="${{ env.MVN_BUILD_OUTPUT_FILE }} $(pwd) ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}" \
+            -Dexec.args="${{ env.MVN_BUILD_OUTPUT_FILE }} ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}" \
             -Dlog4j.configurationFile=file://$(pwd)/tools/ci/log4j.properties
