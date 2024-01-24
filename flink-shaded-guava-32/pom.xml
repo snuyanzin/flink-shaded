@@ -46,7 +46,7 @@ under the License.
                     <artifactId>listenablefuture</artifactId>
                 </exclusion>
             </exclusions>
-            <optional>true</optional>
+            <optional>${flink.markBundledAsOptional}</optional>
         </dependency>
     </dependencies>
 
