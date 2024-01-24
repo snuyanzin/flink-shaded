@@ -50,7 +50,7 @@ jobs:
              -Plicense-check \
             | tee ${{ env.MVN_BUILD_OUTPUT_FILE }}
           
-          mvn ${MVN_COMMON_OPTIONS} dependency:tree -B | tee ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
+          mvn ${MVN_COMMON_OPTIONS} dependency:tree | tee ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
 
       - name: Check licensing
         run: |
