@@ -52,16 +52,16 @@ jobs:
           
           mvn ${MVN_COMMON_OPTIONS} dependency:tree | tee ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
 
-      - name: Check licensing
-        run: |
-          mvn ${MVN_COMMON_OPTIONS} exec:java@check-license -N \
-            -Dexec.args="${{ env.MVN_BUILD_OUTPUT_FILE }} $(pwd) ${{ env.MVN_VALIDATION_DIR }}" \
-            -Dlog4j.configurationFile=file://$(pwd)/tools/ci/log4j.properties
-
       - name: Check shade optional dependencies
         run: |
           cat ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
           
           mvn ${MVN_COMMON_OPTIONS} exec:java@check-shade -N \
             -Dexec.args="${{ env.MVN_BUILD_OUTPUT_FILE }} ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}" \
+            -Dlog4j.configurationFile=file://$(pwd)/tools/ci/log4j.properties
+
+      - name: Check licensing
+        run: |
+          mvn ${MVN_COMMON_OPTIONS} exec:java@check-license -N \
+            -Dexec.args="${{ env.MVN_BUILD_OUTPUT_FILE }} $(pwd) ${{ env.MVN_VALIDATION_DIR }}" \
             -Dlog4j.configurationFile=file://$(pwd)/tools/ci/log4j.properties
