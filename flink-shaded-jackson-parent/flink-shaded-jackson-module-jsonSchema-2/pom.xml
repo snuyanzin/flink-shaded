@@ -35,22 +35,22 @@ under the License.
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <optional>true</optional>
+            <optional>${flink.markBundledAsOptional}</optional>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <optional>true</optional>
+            <optional>${flink.markBundledAsOptional}</optional>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <optional>true</optional>
+            <optional>${flink.markBundledAsOptional}</optional>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-jsonSchema</artifactId>
-            <optional>true</optional>
+            <optional>${flink.markBundledAsOptional}</optional>
         </dependency>
     </dependencies>
 
