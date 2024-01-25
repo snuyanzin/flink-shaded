@@ -43,24 +43,28 @@ under the License.
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm</artifactId>
             <version>${asm.version}</version>
+            <optional>${flink.markBundledAsOptional}</optional>
         </dependency>
 
         <dependency>
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm-tree</artifactId>
             <version>${asm.version}</version>
+            <optional>${flink.markBundledAsOptional}</optional>
         </dependency>
 
         <dependency>
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm-analysis</artifactId>
             <version>${asm.version}</version>
+            <optional>${flink.markBundledAsOptional}</optional>
         </dependency>
 
         <dependency>
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm-commons</artifactId>
             <version>${asm.version}</version>
+            <optional>${flink.markBundledAsOptional}</optional>
         </dependency>
     </dependencies>
 
@@ -70,7 +74,7 @@ under the License.
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <!-- asm6+ uses java9 modularization which cannot be processed with 3.0.0 -->
-                <version>3.1.1</version>
+                <version>3.4.1</version>
                 <executions>
                     <execution>
                         <id>shade-flink</id>
