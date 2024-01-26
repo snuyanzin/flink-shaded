@@ -56,10 +56,12 @@ jobs:
             -Dexec.args="${{ env.MVN_BUILD_OUTPUT_FILE }} $(pwd) ${{ env.MVN_VALIDATION_DIR }}" \
             -Dlog4j.configurationFile=file://$(pwd)/tools/ci/log4j.properties
 
+      - name: Create Dependency Tree
+        run: |
+           mvn ${MVN_COMMON_OPTIONS} dependency:tree -Plicense-check | tee ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
+
       - name: Check shade optional dependencies
         run: |
-            mvn ${MVN_COMMON_OPTIONS} dependency:tree -Plicense-check | tee ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
-            
             mvn ${MVN_COMMON_OPTIONS} exec:java@check-shade -N \
               -Dexec.args="${{ env.MVN_BUILD_OUTPUT_FILE }} ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}" \
               -Dlog4j.configurationFile=file://$(pwd)/tools/ci/log4j.properties
