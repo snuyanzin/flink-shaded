@@ -50,8 +50,6 @@ jobs:
              -Plicense-check \
             | tee ${{ env.MVN_BUILD_OUTPUT_FILE }}
 
-          mvn ${MVN_COMMON_OPTIONS} dependency:tree -Plicense-check | tee ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
-
       - name: Check licensing
         run: |
           mvn ${MVN_COMMON_OPTIONS} exec:java@check-license -N \
@@ -60,7 +58,7 @@ jobs:
 
       - name: Check shade optional dependencies
         run: |
-            cat ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
+            mvn ${MVN_COMMON_OPTIONS} dependency:tree -Plicense-check | tee ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}
             
             mvn ${MVN_COMMON_OPTIONS} exec:java@check-shade -N \
               -Dexec.args="${{ env.MVN_BUILD_OUTPUT_FILE }} ${{ env.MVN_DEPENDENCY_PLUGIN_OUTPUT_FILE }}" \
