@@ -127,7 +127,6 @@ under the License.
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
                 <version>${zookeeper.version}</version>
-                <optional>${flink.markBundledAsOptional}</optional>
             </dependency>
             <dependency>
                 <groupId>io.netty</groupId>
@@ -141,7 +140,6 @@ under the License.
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
-                <optional>${flink.markBundledAsOptional}</optional>
             </dependency>
         </dependencies>
     </dependencyManagement>
